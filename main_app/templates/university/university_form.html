@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if form.instance.pk %}Редактировать{% else %}Добавить{% endif %} университет</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Редактировать{% else %}Добавить{% endif %} университет</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Отображаем форму -->
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{% url 'university_list' %}">Вернуться к списку университетов</a>
+</body>
+</html>
